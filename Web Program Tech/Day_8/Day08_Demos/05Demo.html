@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var names = ["omkar",
+                     "dhuldev",
+                     "gurjyot",
+                     "sachin",
+                     "raj",
+                     "abhishek"];
+        
+        var players = ["omkar1",
+                     "dhuldev1",
+                     "gurjyot1",
+                     "sachin1",
+                     "raj1",
+                     "abhishek1"];
+        
+     
+        // Iterate_N_DoSomething(SayHi);
+        //Iterate_N_DoSomething(SayBye);
+
+        // function Iterate_N_DoSomething(F1)
+        // {
+        //     for(i=0;i<names.length;i++)
+        //     {
+        //         F1(names[i]);
+        //     }
+        // }
+
+
+        // Map(names, SayHi);
+        // Map(names, SayBye);
+        // Map(players, SayHi);
+
+        // function Map(someArray,F1)
+        // {
+        //     for(i=0;i<someArray.length;i++)
+        //     {
+        //         F1(someArray[i]);
+        //     }
+        // }
+
+        // names.map(SayHi); // Map(names, SayHi);
+        names.map(SayBye); // Map(names, SayBye);
+
+
+        function SayHi(name)
+        {
+            console.log("Hello " + name);
+        }
+
+        function SayBye(name)
+        {
+            console.log("Bye " + name);
+        }
+           
+    </script>
+</body>
+</html>

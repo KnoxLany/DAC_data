@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var counter = 100;
+
+        function DoSomething()
+        {
+            let counter = 23;
+            counter = counter + 1;
+            console.log("Within the DoSomething Method " + counter);
+        }
+        console.log("Before Calling DoSomething Method " + counter);
+
+        DoSomething();
+        counter = counter + 500 ;
+        console.log("Out side and after calling the DoSomething Method " + counter);
+
+        //-------------------------------------------------
+        // Understanding COnstant
+        //-------------------------------------------------
+        // const pi = 3.14;
+        // pi = 56;
+        // console.log(pi);
+
+
+        // var pi = 3.14;
+
+        // pi = 56;
+        // console.log(pi);
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+   <script>
+      var Person = {
+                        No: undefined,
+                        Name: undefined,
+                        Address: undefined,
+                        Print: function ()
+                                {
+                                    console.log(this.No 
+                                    + this.Name 
+                                    + this.Address);
+                                } 
+                   }
+        
+        
+        // Person.No = 10;
+        // Person.Name = "Sachin";
+        // Person.Address = "Mumbai";
+        // Person.Print();
+
+        var Emp = {};
+        Emp.__proto__ = Person; 
+        //Above code is prototypal inheritance in JS
+        
+        Emp.No = 10;
+        Emp.Name = "Vikram";
+        Emp.Address = "Mumbai";
+        Emp.Print();
+
+   </script> 
+</body>
+</html>

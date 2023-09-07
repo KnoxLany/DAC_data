@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtName">
+    <button onclick="DoSomething()">Get Data</button>
+    <script>
+
+        function DoSomething()
+        {
+            var refTotxtName = 
+                document.getElementById("txtName");
+                debugger
+            if(refTotxtName.value == "mahesh")
+            {
+                alert("Success")
+            }
+            else
+            {
+                alert("Failure")
+            }
+        }
+
+        // var a = 1;
+        // var b = "1";
+
+        // var result = (a == b);
+        // console.log(result)
+
+        // var result = (a === b);
+        // console.log(result)
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .MyBorder{
+            border: 1px solid black
+        }
+
+        th,td{
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        body
+        {
+            background-color: white;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+   <center>
+    <table id="myTable" class="MyBorder"  
+           style="width: 600px;">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </table>
+   </center>
+
+   <script>
+    // var emp = {"no":1,"name":"mahesh","country":"india"};
+    // console.log(emp.no);
+    // console.log(emp.name);
+    // console.log(emp.country);
+    
+    var refTomyTable = 
+         document.getElementById("myTable");
+
+         debugger;
+    var users =[
+                {"no":1,"name":"mahesh","country":"india"},
+                {"no":2,"name":"nilesh","country":"india"},
+                {"no":3,"name":"suresh","country":"india"},
+                {"no":4,"name":"ramesh","country":"india"},
+                {"no":5,"name":"jayesh","country":"india"}
+               ];
+
+    for(i=0;i<users.length;i++)
+    {
+        var user = users[i];
+
+        var row = "<tr>"
+                +   "<td>" + user.no  + "</td>" 
+                +   "<td>" + user.name  + "</td>" 
+                +   "<td>" + user.country  + "</td>" 
+                + "</tr>";
+        refTomyTable.innerHTML = 
+                refTomyTable.innerHTML + row; 
+        debugger;
+    }
+   </script>
+</body>
+</html>

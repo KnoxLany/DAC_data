@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body onload="DoSomething()">
+  <center>  <h1 id="myHeader"></h1></center>
+    <script>
+        var counter = 0;
+        var refTomyHeader = 
+            document.getElementById("myHeader");
+
+        function DoSomething()
+        {
+            // setInterval( KeepCounting, 1000);
+            setInterval((name, address)=>
+                            {
+                                debugger;
+                                counter = counter + 1;
+                                refTomyHeader.innerText = counter;
+                            }   , 1000,"mahesh", "pune");
+        }
+
+
+        // function KeepCounting()
+        // {
+        //     counter = counter + 1;
+        //     refTomyHeader.innerText = counter;
+        // }
+
+
+        // var KeepCounting = function()
+        //                     {
+        //                         counter = counter + 1;
+        //                         refTomyHeader.innerText = counter;
+        //                     }
+
+
+        // var KeepCounting = ()=>
+        //                     {
+        //                         counter = counter + 1;
+        //                         refTomyHeader.innerText = counter;
+        //                     }   
+    </script>
+</body>
+</html>

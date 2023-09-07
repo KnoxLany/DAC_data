@@ -1,0 +1,46 @@
+Interface IDatabase
+{
+  colletion Select();
+  int Insert(Hashmap);
+}
+
+public class SqlServer implements IDatabase
+{
+  Select(){....} select * from someTable in sql
+  Insert(Hashmap){....}
+}
+
+public class Oracle implements IDatabase
+{
+  Select(){....}select * from someTable in oracle
+  Insert(Hashmap){....}
+}
+
+
+public class DBFactory
+{
+	public  IDatabase GetMeSomeDBObject(choice)
+ {
+    if(choice == 1)
+    {
+			return new SQLServer();
+    }
+    else
+	  {
+			return new Oracle();
+	  }
+ }
+}
+
+Main()
+{
+	console: Ask for choice:
+	1: SQL
+	2: Oracle
+
+	IDatabase obj=  DBFactory.GetMeSomeDBObject(2)
+	obj.select()
+	
+}
+
+

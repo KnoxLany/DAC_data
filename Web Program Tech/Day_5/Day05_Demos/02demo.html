@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Demo</title>
+    
+</head>
+<body>
+    <input type="text" id="txtName" value="">
+    <input type="button" 
+    value="Click Me" onclick="DoSomething()">
+    
+    <div id="myDiv" style="color: orangered;">
+    </div>
+
+    <script>
+        function DoSomething()
+        {
+            debugger;
+        
+            var refToTxtName = 
+                document.getElementById("txtName");
+            
+            var refTomyDiv = 
+                document.getElementById("myDiv");
+        
+            if(refToTxtName.value=="")
+            {
+                refTomyDiv.innerText = "Please Enter Name";
+            }
+           else
+           {
+            refTomyDiv.innerText = "Hello " + 
+                                    refToTxtName.value;
+           }
+
+        }
+
+        
+    </script>
+</body>
+</html>

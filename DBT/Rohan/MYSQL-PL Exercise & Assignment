@@ -1,0 +1,118 @@
+----------------MUSQL-PL Execise and Assignment-----------------
+
+-----------------------------------------------------------------------------------------------------
+* EXECISE -1 
+-----------------------------------------------------------------------------------------------------
+
+1.Write a program that computes the perimeter and the area of a rectangular. define your own values for the length and width. (Assuming that L and W are the length and width of the rectangular , perimeter = 2*(L+W) and Area = L*W )?
+
+delimiter //
+create procedure area(x int, y int)
+begin
+declare a int;
+declare P int;
+set a = x*y;
+set p = 2*(x+y);
+insert into Temp values(a,'Area');
+insert into Temp values(p,'Perimeter');
+end //
+delimiter ;
+call area(2,4);
+drop procedure area;
+select * from Temp; 
+
+2.Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice versa. The required formula are C = (F-32)*5/9  F = 9/5*C+32?
+
+delimiter //
+create procedure temp(x int, y int)
+begin
+declare c float;
+declare f float;
+set c = (x-32)*5/9;
+set f = 9/5*y+32;
+insert into Temp values(c,'Celsius');
+insert into Temp values(f,'Fahrenheit');
+end //
+delimiter ;
+
+call temp(86,30);
+drop procedure temp;
+select * from Temp;
+
+3.Write a program that enables a user to input an integer. the program should then state whether the integer is evenly divisible by 5?
+
+delimiter //
+create procedure even(x int)
+begin
+declare n float;
+set n = x%5;
+case
+when n = 0 then
+insert into Temp values(x,'Div by 5');
+when n != 0 then
+insert into Temp values(x,'Not div by 5');
+end case;
+end //
+delimiter ;
+call even(12);
+drop procedure even;
+select * from Temp;
+
+-----------------------------------------------------------------------------------------------------
+* EXECISE - 2
+-----------------------------------------------------------------------------------------------------
+
+1.Select from any table a number and determine whether it is within a given range (for example between 1 and 10)?
+
+delimiter //
+create procedure lim(x int)
+begin
+select Empno from EMP3 where Empno=x;
+case
+when x <= 5 then
+insert into Temp values(x,'In table EMP3');
+else 
+insert into Temp values(x,'Not in table EMP3');
+end case;
+end //
+delimiter ;
+call lim(5);   
+
+
+2.Select from any table three positive integers representing the sides of the triangle and determine whether they form a valid triangle? HINT: In a triangle the sum of any two sides must always be greater than the third side?
+
+delimiter //
+create procedure tri()
+begin
+declare x int;
+declare y int;
+declare z int;
+set x = select 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

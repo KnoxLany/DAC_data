@@ -1,0 +1,153 @@
+
+-------------------Stored Procedure-----------------------------
+------Table------
+
+create table temp
+(First int,
+second char(15)
+);
+
+---------------------------------------------------------
+
+1.
+delimiter ;;
+create procedure abc()
+begin
+	insert into temp values(1, 'HELLO');
+end;;
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+
+*** to call the stored procedure: ***
+	call abc();
+*** to drop the stored procedure: ***
+	drop procedure abc;
+	
+---------------------------------------------------------
+2.
+delimiter ;;
+create procedure abc()
+begin
+	declare x int;
+	set x = 2;
+	insert into temp values(x,'Hello');
+end;;
+delimiter ; 
+call abc();
+drop procedure abc;
+
+---------------------------------------------------------
+3.
+delimiter ;;
+create procedure abc()
+begin
+	declare x int default 3;
+	insert into temp values(X, 'Hello');
+end;;
+delimiter ;
+call abc();
+drop procedure abc;
+
+---------------------------------------------------------
+4.
+delimiter ;;
+create procedure abc()
+begin
+	declare x char(15) default 'CDAC';
+	insert into temp values(4, x);
+end;;
+delimiter ;
+call abc();
+drop procedure abc;
+
+---------------------------------------------------------
+5.
+delimiter ;;
+create procedure abc()
+begin
+	declare x char(15) default 'king';
+	declare y int default 3000;
+	declare z float(2,1) default 0.4;
+	declare hra int;
+	set hra = y*z;
+	insert into temp values(y, x);
+	insert into temp values(hra,'HRA');
+end ;;
+delimiter ;
+call abc();
+drop procedure abc;
+
+---------------------------------------------------------
+------------table ---------------
+create table EMP2
+(Ename varchar(25),
+Sal int,
+Job varchar(20),
+Deptno int
+);
+
+insert into EMP2  values
+('Scott', 3000, 'Clerk', 10),
+('King', 5000, 'Manager', 20);
+
+---------------------------------
+6.
+delimiter ;;
+create procedure abc()
+begin
+	declare x int;
+	declare y varchar(15);
+	select sal, job into x, y from EMP2 where Ename= 'KING';
+	insert into temp values(x, y);
+end ;;
+delimiter ;
+call abc();
+drop procedure abc;
+
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

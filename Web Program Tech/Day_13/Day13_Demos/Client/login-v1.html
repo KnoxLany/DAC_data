@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log in</title>
+</head>
+<body>
+    <br>
+    <br><br><br><br>
+    <center>
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td>
+                    <input type="text" id="txtName">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password" id="txtPassword">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Login" onclick="SignIn()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                 <div id="errorDiv" style="color: red;">
+
+                 </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        function SignIn()
+        {
+            var refToTxtName = 
+                document.getElementById("txtName"); 
+
+            var refTotxtPassword = 
+                document.getElementById("txtPassword");
+            var refToerrorDiv = 
+                document.getElementById("errorDiv");
+            
+            if(refToTxtName.value =="mahesh" &&
+             refTotxtPassword.value =="mahesh@123")
+             {
+                refToerrorDiv.innerText = "";
+                sessionStorage.setItem("isloggedin", true);
+                sessionStorage.setItem("username",refToTxtName.value  )
+                
+                window.location.href = "index.html";
+
+             }
+             else
+             {  
+                refToerrorDiv.innerText = "Credentials Invalid!";
+             }
+
+        }
+    </script>
+</body>
+</html>

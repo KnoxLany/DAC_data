@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container" id="myContainer">
+            <button class="btn btn-success" onclick="DoSomething()">Click Me</button><br><br>
+            
+    </div>
+    <div class="alert alert-success alert-dismissible"
+         style="position: absolute;top:500px; display: none;" role="alert" id="popup">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </div>
+    <script>
+        function DoSomething()
+        {
+            var refTopopup = 
+                document.getElementById("popup");
+            refTopopup.style.display = "block";
+            setTimeout(() => {
+                refTopopup.style.display = "none";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

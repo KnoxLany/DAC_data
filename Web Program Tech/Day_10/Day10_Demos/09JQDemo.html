@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <style>
+        .YStyle{
+            height: 100px; background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="Click Me">
+    <br>
+    <div id="div1" class="YStyle" title="pune">
+        ABC
+    </div>
+    <br>
+    <div id="div2" style="height: 100px; background-color: pink;" title="panji">
+        XYZ
+    </div>
+    <br>
+    <br>
+    <div id="div3" class="YStyle" title="mumbai">
+        1234
+    </div>
+
+    <br>
+    <div id="div4" style="height: 100px; background-color: skyblue;" title="patana">
+        PQR
+    </div>
+    <br>
+    <section id="section1" class="YStyle">
+        This is section TAG
+    </section>
+    <script>
+        $("#btn").click(function ()
+        {
+        //PART1
+        //    $("#div1").css("height","200px");
+        //    $("#div1").css("width","200px");
+        //    $("#div1").css("backgroundColor","red");
+
+        //PART 2
+        //    $("#div1").css({"height":"200px",    
+        //                     "width":"200px","backgroundColor":"red"});
+
+        //PART 3
+        //$("div").css("backgroundColor","red");
+
+        //PART 4
+        //$(".YStyle").css("backgroundColor","red");
+
+        //PART 5
+        // $("div.YStyle").css("backgroundColor","red");
+
+        //PART 6
+        //  $("div[title='panji']").css("backgroundColor","red");
+
+      // PART 7
+      // $("div[title^='p']").css("backgroundColor","red");
+
+      // PART 8
+      // $("div[title$='i']").css("backgroundColor","red");
+
+      // PART 9
+      // $("div[title*='a']").css("backgroundColor","red");
+    })
+    </script>
+</body>
+</html>

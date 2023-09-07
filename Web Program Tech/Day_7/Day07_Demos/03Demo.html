@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Start()">Start</button>
+    <button onclick="Stop()">Stop</button>
+        <div id="myDiv1" style="height: 100px; width: 100px; background-color: orange;position: absolute;top:50px">
+            <img src="car2.png" style="height: 100px; width: 100px;" id="mycar">
+        </div>
+        <div id="myDiv2" style="height: 50px;width:100%;background-color: black;position: absolute;top:150px">
+        </div>
+       
+      
+
+        <script>
+            var leftcounter = 0;
+            var queNo ;
+            function Start()
+            {
+                queNo =  window.setInterval(Move, 500);
+            }
+
+            function Stop()
+            {
+                window.clearInterval(queNo);
+            }
+            function Move()
+            {
+                var refTomyDiv1 = document.getElementById("myDiv1");
+
+              leftcounter = leftcounter + 10;
+              refTomyDiv1.style.left = 
+                    leftcounter + "px";
+            }
+        </script>
+</body>
+</html>

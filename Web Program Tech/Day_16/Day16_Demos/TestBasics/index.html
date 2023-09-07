@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    <script>
+         var Person = {
+                            Print: function()
+                            {
+                             console.log(this.No + 
+                                        this.Name)
+                            }
+                      }
+         
+        Person.Print();
+
+        var p1 = { No :10, 
+                   Name : "Sachin"};
+      
+        var myPrint =  Person.Print.bind(p1);
+        debugger;
+        myPrint();
+
+    </script>
+</body>
+</html>

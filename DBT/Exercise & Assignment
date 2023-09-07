@@ -1,0 +1,614 @@
+-----------------------------------------------------------------------------------SQL EXERCISE-1
+-----------------------------------------------------------------------------------
+    
+1.   Create table SEMP 
+     ( EmpNo char(4),
+     EmpName char(20),
+     Basic float,
+     DepNo char(2),
+     DeptHead char(4));
+    
+2.   create table SDEPT 
+     (DepNo char(2),
+     DepName char(15));
+    
+3.   insert into SDEPT
+     values ('10','Development'),
+     ('20','Training');
+    
+4.   insert into SEMP
+     values ('0001','SUNIL',6000,'10',NULL),
+     ('0002','HIREN',8000,'20',NULL),
+     ('0003','ALI',4000,'10', 0001),
+     ('0004','GEORGE',6000,NULL,'0002');
+    
+     CREATE TABLE S
+     (`S#` char(4), Sname varchar(25), Status int, City varchar(15));
+    
+     CREATE TABLE P
+     (`P#` char(4), Pname varchar(25), Color varchar(15), Weight int, City varchar(15));
+    
+     CREATE TABLE J
+     (`J#` char(4), Jname varchar(25), City varchar(15));
+    
+     CREATE TABLE SPJ
+     (`S#` char(4), `P#` char(4), `J#` char(4), Qty int);
+    
+     insert into S
+     values
+     ('S1', 'Smith', 20, 'London'),
+     ('S2', 'Jones', 10, 'Paris'),
+     ('S3', 'Blake', 30, 'Paris'),
+     ('S4', 'Clark', 20, 'London'),
+     ('S5', 'Adams', 30, 'Athens');
+    
+     insert into P
+     values
+     ('P1', 'Nut', 'Red', 12, 'London'),
+     ('P2', 'Bolt', 'Green', 17, 'Paris'),
+     ('P3', 'Screw', 'Blue', 17, 'Rome'),
+     ('P4', 'Screw', 'Red', 14, 'London'),
+     ('P5', 'Cam', 'Blue', 12, 'Paris'),
+     ('P6', 'Cog', 'Red', 19, 'London');
+    
+     insert into J
+     values
+     ('J1', 'Sorter', 'Paris'),
+     ('J2', 'Punch', 'Rome'),
+     ('J3', 'Reader', 'Athens'),
+     ('J4', 'Console', 'Athens'),
+     ('J5', 'Collator', 'London'),
+     ('J6', 'Terminal', 'Oslo'),
+     ('J7', 'Tape', 'London');
+    
+     insert into SPJ
+     values
+     ('S1', 'P1', 'J1', 200),
+     ('S1', 'P1', 'J4', 700),
+     ('S2', 'P3', 'J1', 400),
+     ('S2', 'P3', 'J2', 200),
+     ('S2', 'P3', 'J3', 200),
+     ('S2', 'P3', 'J4', 500),
+     ('S2', 'P3', 'J5', 600),
+     ('S2', 'P3', 'J6', 400),
+     ('S2', 'P3', 'J7', 800),
+     ('S2', 'P5', 'J2', 100),
+     ('S3', 'P3', 'J1', 200),
+     ('S3', 'P4', 'J2', 500),
+     ('S4', 'P6', 'J3', 300),
+     ('S4', 'P6', 'J7', 300),
+     ('S5', 'P2', 'J2', 200),
+     ('S5', 'P2', 'J4', 100),
+     ('S5', 'P5', 'J5', 500),
+     ('S5', 'P5', 'J7', 100),
+     ('S5', 'P6', 'J2', 200),
+     ('S5', 'P1', 'J4', 100),
+     ('S5', 'P3', 'J4', 200),
+     ('S5', 'P4', 'J4', 800),
+     ('S5', 'P5', 'J4', 400),
+     ('S5', 'P6', 'J4', 500);
+    
+5.   select * from S;
+
+6.   select `S#`, Sname from S;
+
+7.   select Pname, Color from P;
+
+8.   select * from S 
+     where City = 'London';
+
+9.   select * from S 
+     where city = 'Paris' or 'Athens';
+
+10.  select * from J 
+     where city = 'Athens';
+
+11.  select * from P 
+     where Weight >= 12 and weight <= 14;
+    
+12.  select * from S
+     where Status >= 20;
+    
+13.  select * from S
+     where City != 'London';
+    
+14.  select City from S;
+
+15.  select Weight, Weight*1000 "Milligrams", Weight*0.001 "Killograms" from P;
+
+ Note: 1. (mili cm m decameter hectameter km )
+       2. description of tables can be seem by using - desc table_name -
+       
+-----------------------------------------------------------------------------------
+SQL EXERCISE-2
+-----------------------------------------------------------------------------------
+    
+1.   Display the supplier tables in the descending order of City?
+ans-
+     select city from S
+     order by city desc;
+    
+2.   Display the part Table in the ascending order of City and within the City in the ascending order of part names?
+and-
+     select `P#`, Pname, Color, Weight, City from P
+     order by City, Pname;
+    
+3.   Display all the Suppliers with a status between 10 and 20?
+ans-
+     select `S#`, Sname, Status, City from S
+     where Status >= 10 and Status <= 20;
+     or
+     select `S#`, Sname, Status, City from S
+     where Status between 10 and 20;
+    
+4.   Display all the parts and their Weight, which are not in the range of 10 and 15?
+ans-
+     select `P#`, Pname, Color, Weight, City from P
+     where Weight not between 10 and 15;
+
+5.   Display all the parts names starting with the letter 'S'?
+ans-
+     select `P#`, Pname, Color, Weight, City from P
+     where Pname like 'S%';
+    
+6.   Display all the suppliers belonging to cities starting with the letter 'L'?
+ans-
+     select `S#`, Sname, Status, City from S
+     where City like 'L%';
+    
+7.   Display all the projects, with the third letter in JName as 'n'?
+ans-
+     select `J#`, Jname, City from J
+     where Jname like '__n%';
+    
+-----------------------------------------------------------------------------------
+SQL EXERCISE-3
+-----------------------------------------------------------------------------------
+
+1.   Display all the supplier names with the initial letter capital?
+ans- this is done for lower 1st letter and upper other letters.
+     select concat(lower(substr(Sname,1,1)), upper(substr(Sname,2))) from S;
+       
+
+2.   Display all the supplier names in upper case?
+ans-
+     select upper(substr(Sname,1)) from S;
+    
+3.   Display all the supplier names in lower case?
+ans-
+     select lower(substr(Sname,1)) from S;
+    
+4.   Display all the supplier names padded to 25 characters, with spaces on the left?
+ans-
+     select lpad(Sname,25,' ') from S;
+    
+5.   Display all the supplier names (with 'la' replaced by 'ro'?
+ans-
+     select replace(Sname,'la','ro') from S;
+    
+6.   Implement the above command such that 'l' is replaced with 'r' and 'a' is replaced with 'o'?
+ans-
+     select replace(replace (Sname,'l','r') ,'a','o') from S;
+    
+7.   Display the supplier names and the lengths of the names?
+ans: select Sname, length(Sname) from S;
+
+8.   Use the soundex function to search for a supplier by the name of 'BLOKE'?
+ans: select * from S 
+     where soundex(Sname)=soundex('bloke');
+     
+9.   Display the supplier name and the status (as Ten,Twenty, Thirty, ect.)?
+ans: select Sname, Status,
+     case
+     when Status = 10 then 'Ten'
+     when Status = 20 then 'Twenty'
+     when Status = 30 then 'Thirty'
+     else 'Others'
+     end "Changed status" from S;
+     
+10.  Display the current day(E.g Thursday)?
+ans: select dayname(sysdate()) from dual;
+     
+NOTE: To write the letter in centre? 
+     select concat(lpad(Sname,((20-length(Sname))),'*'), substr(rpad(Sname,((20-length(Sname))),'*'),6)) from S;
+
+-----------------------------------------------------------------------------------
+SQL EXERCISE-4
+-----------------------------------------------------------------------------------
+
+1.   Display the minimum Status in the Supplier table?
+ans: select min(Status) from S;
+
+     select max(Status) from S;
+     select sum(Status) from S;
+     select avg(Status) from S;
+     select count(Status) from S;
+     
+2.   Display the max weight in the Parts table?
+ans: select max(Weight) from P;
+
+3.   Display the average Weight of the parts?
+ans: select avg(Weight) from P;
+
+4.   Display the total Quantity sold for part 'P1'?
+ans: select sum(Qty) from SPJ
+     where `P#` = 'P1';
+     
+5.   Display the total Quentity sold for each part?
+ans: select `P#`, sum(Qty) from SPJ group by `P#`;
+
+6.   Display the average Qty sold for each part?
+ans: select `P#`, avg(Qty) from SPJ group by `P#`;
+
+7.   Display the max Qty Sold for each part, provided the max Qty is greater than 800.
+ans: select `P#`, sum(Qty) from SPJ group by `P#` 
+     having sum(Qty) > 800;
+     
+8.   Display the status an the count of suppliers with that status?
+Ans: select Status, Count(Sname) from S group by Status;
+
+9.   Display the count of projects going on in different cities?
+Ans: select City, count(Sname) from S group by City;
+
+10   What is the diff between Count(Status) and Count(*)?
+Ans: select case 
+     when Status=10 then 'Ten' 
+     when Status=20 then 'Twenty' 
+     when Status=30 then 'Thirty' 
+     else 'other' end "Status", 
+     Count(Status) "Count" from S 
+     group by Status 
+     order by Status; 
+ 
+-----------------------------------------------------------------------------------
+SQL EXERCISE-5
+-----------------------------------------------------------------------------------
+
+1.   Display the Supplier and the Quantity sold
+Ans: select Sname, Qty from SPJ,S
+     where SPJ.`S#`=S.`S#`;
+
+2.   Display the part name and quantity sold?
+Ans: select Pname, Qty from SPJ,P
+     where SPJ.`P#`=P.`P#`;
+     
+3.   Display the Project name and quantity sold?
+Ans: select Jname, Qty from SPJ,J
+     where SPJ.`J#`=J.`J#`;
+     
+4.   Display the supplier name, part name, project name and quantity sold?
+Ans: select Sname, Pname, Jname, Qty from SPJ,J,P,S
+     where SPJ.`S#`=S.`S#` and SPJ.`P#`=P.`P#` and SPJ.`J#`=J.`J#`;
+     
+     or by group by
+     
+     select Sname, Pname, Jname, Qty from SPJ,J,P,S
+     where SPJ.`S#`=S.`S#` and SPJ.`P#`=P.`P#` and SPJ.`J#`=J.`J#`;
+
+
+5.   Display the supplier name, supplying parts to a project in the same city?
+Ans: select Sname, Jname from S,J
+     where S.City=J.City;
+
+6.   Display the part name that is 'Red' is color and the quantity sold?
+Ans: select Pname, Qty from SPJ,P
+     where SPJ.`P#`=P.`P#` and P.Color= 'Red'; 
+     
+7.   Display all the Quantity sold by suppliers with the status = 20?
+Ans: select Qty, Status from SPJ,S
+     where SPJ.`S#`=S.`S#` and S.Status=20;
+     
+     or
+     
+     select S.`S#`, Qty, Status from SPJ,S      
+     where SPJ.`S#`=S.`S#` and S.Status=20;
+     
+8.   Display all the parts and quantity with a weight > 14?
+Ans: select Pname, Qty from SPJ,P
+     where SPJ.`P#`=P.`P#` and P.weight > 14;     
+     
+9.   Display all the Project names and city, which has bought more then 500 parts?
+Ans: select Jname, City from SPJ,J      
+     where SPJ.`J#`=J.`J#` and SPJ.Qty > 500 group by Jname, City;
+     
+10.  Display all the part names and quantity sold that have a weight less than 15?
+Ans: select Pname, sum(Qty), Weight from SPJ,P
+     where SPJ.`P#`=P.`P#` and P.Weight < 15 group by Pname, Weight;
+     
+-----------------------------------------------------------------------------------
+SQL EXERCISE-6
+-----------------------------------------------------------------------------------
+
+1.   Display all the suppliers with the same status as the supplier, 'Clark'?
+Ans: select Sname, status from S 
+     where Status = (select Status from S
+     where Sname = 'Clark');
+     
+2.   Display all the Employees in the same department as the employee 'Miller'?
+Ans: Wrong Question
+
+3.   Display all the parts which have more weight than all the red parts?
+Ans: select Pname from P 
+     where Weight > (select max(Weight) from P where Color = 'Red');
+     
+4.   Display all the projects going on in the same city as the project 'Tape'?
+Ans: select Jname from J
+     where City = (select City from J
+     where Jname = 'Tape');
+     
+5.   Display all the parts with weight less then all the green parts?
+Ans: select Pname from P
+     where Weight < (select Weight from P
+     where Color = 'Green'); 
+     
+6.   Display the name of the supplier who has sold the max Quantity (in one Quantity)?
+Ans: select Sname from SPJ,S      
+     where SPJ.`S#`=S.`S#` and Qty= (select max(Qty) from SPJ);
+     
+7.   Display the name of the Employee with the minimum Salary?
+Ans: Wrong Question
+
+8.   Display the name of the supplier who has sold the max overall quantity (Sum of sales)?
+Ans: select Sname, Sum(Qty) from SPJ,S      
+     where SPJ.`S#`=S.`S#` group by Sname
+     order by 2 desc limit 1;
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+
+select Status, case 
+when Status=10 then 'Ten'
+when Status=20 then 'Twenty' 
+when Status=30 then 'Thirty' 
+else 'other' end "Count" from S;
+
+----------------------------------------------------------------------------------- 
+ASSIGNMENT - 1 -----------------------------------------------------------------------------------
+    create table SALESPEOPLE
+    (Snum int(4), Sname varchar(10), City varchar(10), Comm float(3,2));
+    
+    create table CUSTOMERS
+    (Cnum int(4), Cname varchar(10), City varchar(10), Rating int(4), Snum int(4));
+    
+    create table ORDERS
+    (Onum int(4), Amt float(7,2), Odate date, Cnum int(4), Snum int(4));
+    
+    insert into SALESPEOPLE
+    values
+    (1001,'Peel','London',0.12),
+    (1002,'Serres','San Jose',0.13),
+    (1004,'Motika','London',0.11),
+    (1007,'Rifkin','Barcelona',0.15),
+    (1003,'Axelrod','New York',0.10);
+    
+    insert into CUSTOMERS
+    values
+    (2001, 'hoffman', 'London', 100, 1001),
+    (2002, 'Giovanni','Rome', 200, 1003),
+    (2003, 'Liu','San Jose', 200, 1002),
+    (2004, 'Grass','Berlin', 300, 1002),
+    (2006, 'clemens','London', 100, 1001),
+    (2008, 'Cisneros','San Jose', 300, 1007),
+    (2007, 'Pereira','Rome', 100, 1004);
+    
+    insert into ORDERS
+    values
+    (3001, 18.69, '1990-10-03', 2008, 1007),
+    (3003, 767.19, '1990-10-03', 2001, 1001),
+    (3002, 1900.10, '1990-10-03', 2007, 1004),
+    (3005, 5160.45, '1990-10-03', 2003, 1002),
+    (3006, 1098.16, '1990-10-03', 2008, 1007),
+    (3009, 1713.23, '1990-10-04', 2002, 1003),
+    (3007, 75.75, '1990-10-04', 2004, 1002),
+    (3008, 4723.00, '1990-10-05', 2006, 1001),
+    (3010, 1309.95, '1990-10-06', 2004, 1002),
+    (3011, 9891.88, '1990-10-06', 2006, 1001);
+----------------------------------------------------------------------------------- 
+ASSIGNMENT - 2
+-----------------------------------------------------------------------------------
+
+1.   Which field of the customers table is the primary key?
+ans:
+
+2.   What is the 4th column of the customers table?
+ans: RATING.
+
+3.   What is another world for row and for Column?
+ans: Column is called as Field, Attribute. 
+     Row is called as Records, Entity, Tuple.
+    
+4.   Why isnt it possible to see the first five rows of a table?
+ans: Because they are not in a serial number so cant see the first five rows of 
+     tables.
+
+-----------------------------------------------------------------------------------
+ASSIGNMENT - 3
+-----------------------------------------------------------------------------------
+
+1.   Does ANSI recognize the data type DATE?
+ans: yes we can in ANSI.
+
+2.   Which subdivision of SQL is used to insert values in tables? 
+ans: Data Manipulation Language (DML).
+
+-----------------------------------------------------------------------------------
+ASSIGNMENT - 4
+-----------------------------------------------------------------------------------
+
+1.   Write a select command that produces the order number, amount and date for all rows in the orders table?
+ans: select * from ORDERS;
+
+2.   Write a query that produces all rows from the customers table for which the salesperson's number is 1001?
+ans: select * from SALESPEOPLE
+     where Snum = 1001;
+     
+3.   Write a query that displays the SALESPEOPLE table with the column in the followinf order: City, Sname, Snum, Comm?
+ans: select City, Sname, Snum, Comm from SALESPEOPLE;
+
+4.   Write a select command that produves the rating followed by the name of each customer in San Jose?
+ans: select * from CUSTOMERS
+     where City = 'San Jose';
+     
+-----------------------------------------------------------------------------------
+ASSIGNMENT - 5
+-----------------------------------------------------------------------------------
+
+1.   Write a query that will give you all orders for more than RS. 1000?
+ans: select * from ORDERS
+     where Amt > 1000;
+     
+2.   Write a query that will give you the names and cities of all salespeople in London with a commission above 0.10?
+ans: select Sname, City, Comm from SALESPEOPLE
+     where Comm > 0.10;
+
+3.   Write a query on the customers table whose output will exclude all customers with a rating <= 100, unless they are located in Rome?
+ans:  select * from CUSTOMERS
+      where Rating <= 100 and City != 'Rome';
+      
+4.   What will be the output from the following query?
+     select * from ORDERS
+     where (Amt < 1000 OR Not (Odate = '1990-10-03' and Cnum > 2003));
+ans: first solve the bracket and where you will remove 2 rows 2001 and 2003 then remaining is 2008,2007,2008 from which Amt which is not less then 1000 will be removed and remaining all will be printed.
+ 
+ Table
+ 
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+ After Command;
+
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+5.   What will be the output of the following query?
+     select * from ORDERS
+     where not ((Odate = '1990-10-03' or Snum > 1006) and Amt >= 1500);
+ans: Here select rows where Odate is = '1990-10-03' or Snum > 1006 ....... five rows are selected then check and condition Amt >= 1500 .....then only two rows are selected now NOT of these will print all other rows except the selected one.
+
+6.   What is a simpler way to write this query?
+     select Snum, Sname, City, Comm from SALESPEOPLE
+     where (Comm > 0.12 or Comm < 0.14);
+ans: Here it will print the rows Snum, Sname, City, Comm where the rows Comm values more then 0.12 or Comm value less then 0.14 will be printed. Which means it will print all values.
+
+-----------------------------------------------------------------------------------
+ASSIGNMENT - 6
+-----------------------------------------------------------------------------------
+
+1.   Write two different queries that would produce all orders taken on october 3rd or 4th, 1990.
+ans: select * from ORDERS
+     where Odate = '1990-10-03';
+     
+     select * from ORDERS
+     where Odate = '1990-10-04';
+     
+2.   Write a query that selects all of the customers serviced by peel or motika.?
+     (Hint: the Snum field relates the two tables to one another)
+ans: select Cname,Sname from CUSTOMERS, SALESPEOPLE
+     where CUSTOMERS.Snum=SALESPEOPLE.Snum and (Sname='Motika' or Sname='Peel');
+     
+3.   Write a query that will produce all the customers whose names begain with a letter from 'A' to 'G'?
+and: select Cname from CUSTOMERS
+     where Cname regexp '^[a-g].*$';
+     
+4.   Write a query that selects all customers whose names begain with the letter 'C'?
+ans: select Cname from CUSTOMERS
+     where Cname like 'C%';
+     
+5.   Write a query that selects all orders except those with zeroes or Null's in the amt field?
+ans: select Amt from ORDERS
+     where Amt!=0 or Amt!='null';
+     
+Note: 1. regexp-Regular Expressions, is a sequence of characters, used to search and locate specific sequences of characters that match a pattern.
+
+-----------------------------------------------------------------------------------
+ASSIGNMENT - 7
+-----------------------------------------------------------------------------------
+
+1.   Write a query that counts all orders for October 3?
+ans: select count(Odate) from ORDERS
+     where Odate = '1990-10-03';
+     
+2.   Write a query that counts the number of different non-null city values in the CUSTOMERS table?
+ans: select count(City) from CUSTOMERS
+     where City not like 'null';
+     
+3.   Write a query that selects each CUSTOMERS smallest order?
+ans: select Amt from CUSTOMERS
+     order by Amt;
+     
+4.   Write a query that selects the first CUSTOMERS, in alphabetical order, whose name begins with G?
+
+
+do it 
+
+ans: select distinct(Cname)* from CUSTOMERS
+     where Cname like 'G%'
+     order by 1;
+     
+
+     select Cname from CUSTOMERS
+     where Cname regexp '^[g-z].*$'
+     order by Cname;
+     
+5.   Write a query that selects the highest rating in each city?
+ans: select City, max(Rating) from CUSTOMERS
+     group by City;
+     
+6.   Write a query that counts the number of SALESPEOPLE registering orders for each day. (If a SALESPEOPLE has more than one order on a given day, he or she should be counted only once.)?
+ans: select count(distinct (Snum)), Odate from ORDERS
+     group by Odate;
+
+    
+----------------------------------------------------------------------------------
+create table 4A
+    -> (EmpNo int,
+    -> Ename varchar(25),
+    -> Sal float,
+    -> Deptno int);
+    
+    insert into 4A 
+    values (5, 'A', 5000, 1),
+    (4, 'A', 6000, 1),
+    (1, 'C', 7000, 1),
+    (2, 'D', 9000, 2),
+    (3, 'E', 8000, 2);
+    
+    
+    create index i_A4_EmpNo on 4A(EmpNo);
+    
+    

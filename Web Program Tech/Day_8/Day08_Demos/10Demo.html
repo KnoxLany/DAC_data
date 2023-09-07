@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .MyBorder{
+            border: 1px solid black
+        }
+
+        th,td{
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        body
+        {
+            background-color: white;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body onload="LoadUsers()">
+   <center>
+    <table>
+        <tr>
+            <td>No</td>
+            <td>
+                <input type="number" id="txtNo">
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" id="txtName">
+            </td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>
+               <select id="cmbCountry">
+                <option value="India">India</option>
+                <option value="UK">UK</option>
+                <option value="USA">USA</option>
+                <option value="China">China</option>
+                <option value="Canada">Canada</option>
+               </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center>
+                        <button onclick="AddRecord()">
+                            Add Record 
+                        </button>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table id="myTable" class="MyBorder"  
+           style="width: 600px;">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </table>
+   </center>
+
+   <script>
+     var refTomyTable = 
+         document.getElementById("myTable");
+         
+    function LoadUsers()
+    {
+         debugger;
+    var users =[
+                {"no":1,"name":"mahesh","country":"india"},
+                {"no":2,"name":"nilesh","country":"india"},
+                {"no":3,"name":"suresh","country":"india"},
+                {"no":4,"name":"ramesh","country":"india"},
+                {"no":5,"name":"jayesh","country":"india"}
+               ];
+
+    for(i=0;i<users.length;i++)
+    {
+        var user = users[i];
+
+        debugger;
+        // for(key in user)
+        // {
+        //     console.log(key);
+        //     console.log(user[key]);
+        // }
+        
+       
+        var row =   `<tr>`;
+        for(key in user)
+        {
+            row = row + `<td> ${user[key]} </td>`
+        }
+        row = row + `</tr>`;
+
+        refTomyTable.innerHTML = 
+                refTomyTable.innerHTML + row; 
+        debugger;
+    }
+   }
+
+    function AddRecord()
+    {
+     var refToTxtNo = document.getElementById("txtNo");
+     var refToTxtName = document.getElementById("txtName");
+     var refToCC = document.getElementById("cmbCountry");
+
+     var no = refToTxtNo.value;
+     var name = refToTxtName.value;
+     var country = refToCC.value;
+
+     var row =    `<tr>
+                        <td>${no}</td>
+                        <td>${name}</td>
+                        <td>${country}</td>
+                    </tr>`;
+    refTomyTable.innerHTML = 
+                refTomyTable.innerHTML + row; 
+    }
+   </script>
+</body>
+</html>

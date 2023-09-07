@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <center>
+        <table border="1" style="height: 700px; width:300px; text-align: center;">
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ABCD</td>
+                    <td>Pune</td>
+                </tr>
+        </table>
+    </center>
+    <script>
+        $('tr').mouseover(function(){
+            $(this).css("backgroundColor", "yellow");
+        })
+
+        $('tr').mouseout(function(){
+            $(this).css("backgroundColor", "white");
+        })
+
+        $('tr').click(function(){
+            $(this).css("backgroundColor", "green");
+            $(this).unbind('mouseover mouseout');
+        })
+    </script>
+</body>
+</html>

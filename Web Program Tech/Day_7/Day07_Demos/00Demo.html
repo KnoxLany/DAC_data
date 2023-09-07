@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+   <center>
+    <div id="myDiv" style="font-size: xx-large;">
+        
+    </div>
+    <br><br>
+    <button onclick="DoSomething()">Click Me</button>
+   </center>
+    <script>
+      
+        // console.log("Hi");
+        // var returnedValue = window.setTimeout(Print,10000);
+        // console.log(returnedValue);
+        // console.log("Bye");
+
+        console.log("Hi");
+       window.setTimeout(Print,10000);
+       
+        console.log("Bye");
+    
+        function Print()
+        {
+            var refTomyDiv =  document.getElementById("myDiv");
+            refTomyDiv.innerText = "Hello";
+            console.log("Hello");
+        }
+
+        function DoSomething(){
+            alert("Let us disturb!");
+        }
+    </script>
+    
+</body>
+</html>

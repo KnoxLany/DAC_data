@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page 1</title>
+</head>
+<body>
+    <h1>This is Page 1</h1>
+    UserName: <input type="text" id="txtName"> <br>
+    Address: <input type="text" id="txtAddress"> <br>
+    Phone: <input type="text" id="txtPhone"> <br>
+    EMail: <input type="text" id="txtEMail"> <br>
+    <input type="button" value="Click Me" onclick="StoreNMove()">
+    <br> <br> <br>
+    <!-- <a href="09Demo.html">Go to Page 2</a> -->
+
+    <script>
+        function StoreNMove()
+        {
+            var refTotxtName = 
+                document.getElementById("txtName");
+            
+            var refTotxtAddress = 
+                document.getElementById("txtAddress");
+            var refTotxtPhone= 
+                document.getElementById("txtPhone");
+            
+            var refTotxtEMail= 
+                document.getElementById("txtEMail");
+
+            debugger;
+            localStorage.setItem("UName", 
+                                refTotxtName.value);
+            localStorage.setItem("UCity", 
+                                 refTotxtAddress.value);
+
+            sessionStorage.setItem("Phone", 
+                                refTotxtPhone.value);
+            sessionStorage.setItem("EMail", 
+                                 refTotxtEMail.value);
+
+            //Navigate to next page
+            window.location.href = "09Demo.html"
+        }
+    </script>
+</body>
+</html>

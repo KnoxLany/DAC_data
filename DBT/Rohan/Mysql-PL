@@ -1,0 +1,505 @@
+--------------------------------------  MYSQL-PL ------------------------------------
+create table Temp
+(Empno int,
+Ename varchar(25));
+
+
+1.
+
+delimiter //
+create procedure abc()
+begin
+insert into Temp values(1,'Hello');
+end //
+delimiter ; 
+
+call abc();
+
+drop procedure abc;
+
+2.
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+set x=2;
+insert into Temp values(x,'Hey');
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+
+
+3.
+
+delimiter //
+create procedure abc(x int, y varchar(25))
+begin
+insert into Temp values(x,y);
+end //
+delimiter ;
+
+call abc(3,'Hi buddy');
+
+drop procedure abc;
+
+4.
+
+delimiter //
+create procedure abc()
+begin
+declare x int default 4;
+insert into Temp values(x,'Four');
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+
+select * from Temp;
+
+5. ------if default value is kepy and you take parameters while calling it will go for default value
+
+
+delimiter //
+create procedure abc(x int, y varchar(25))
+begin
+declare x int default 100;
+insert into Temp values(x,y);
+end //
+delimiter ;
+
+call abc(5,'Five');
+
+drop procedure abc; 
+select * from Temp;
+ 
+6.
+
+
+delimiter //
+create procedure abc()
+begin
+declare x char(15) default 'LANY';
+declare y int default 3000;
+declare z float default 0.4;
+declare hra float;
+set hra =y*z;
+insert into Temp values(y,x);
+insert into Temp values(hra,'HRA');
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+select * from Temp;
+
+7.
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+select sal into x from EMP2 where Ename='King';
+insert into Temp values(x,'Rohan');
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+select * from Temp;
+
+8.
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+declare y varchar(25);
+select sal, Job into x, y from EMP2 where Ename='King';
+insert into Temp values(x,y);
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+
+select * from Temp;
+
+
+9. IF STATEMENT
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+select sal into x from EMP2 where Ename='Scott';
+if x > 2500 then
+insert into Temp values(x,'Medium sal');
+end if;
+end //
+delimiter ;
+
+call abc();
+
+drop procedure abc;
+select * from Temp;
+
+
+10.
+
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+select sal into x from EMP3 where Ename='D';
+if x > 7500 then
+insert into Temp values(x,'High sal');
+else
+insert into Temp values(x,'Low sal');
+end if;
+end //
+delimiter ;
+
+call abc();  
+
+drop procedure abc;
+select * from Temp;
+
+OR PARAMETERS PASSING
+
+delimiter //
+create procedure abc(y varchar(25))
+begin
+declare x int;
+select sal into x from EMP3 where Ename=y;
+if x > 7500 then
+insert into Temp values(x,'High sal');
+else
+insert into Temp values(x,'Low sal');
+end if;
+end //
+delimiter ;
+
+call abc('D');
+
+drop procedure abc;
+select * from Temp;
+
+11.
+
+
+delimiter //
+create procedure abc()
+begin
+declare x int;
+select sal into x from EMP3 where Ename='A';
+case
+when x > 7500 then
+insert into Temp values(x,'sal High');
+when x < 7500 then
+insert into Temp values(x,'sal Low');
+else
+insert into Temp values(x,'sal Medium');
+end case;
+end //
+delimiter ;
+
+call abc();  
+
+drop procedure abc;
+select * from Temp;
+
+12.
+
+
+delimiter //
+create procedure abc()
+begin
+declare x int default 0;
+while x < 10 do
+insert into Temp values(x,'In loop bro');
+set x= x + 1;
+end while;
+end //
+delimiter ;
+
+call abc();
+drop procedure abc;
+select * from Temp;
+
+13.
+
+
+
+delimiter //
+create procedure abc()
+begin
+declare x int default 1;
+declare y int default 1;
+while x < 10 do
+while y < 10 do
+insert into Temp values(y,'In loop Y Bro');
+set y= y + 1;
+end while;
+insert into Temp values(x,'In loop X Bro');
+set x= x + 1;
+end while;
+end //
+delimiter ;
+
+call abc();
+drop procedure abc;
+select * from Temp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+--------------------TRIGGERS--------------------------
+delimiter //
+create trigger abc
+before insert
+on EMP3 for each row
+begin 
+insert into Temp values(1,'Insert');
+end //
+delimiter ;
+

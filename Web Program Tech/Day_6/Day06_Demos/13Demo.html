@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Do something"   
+                         onclick="Print()">
+                         <br> <br>
+    <input type="button" value="Do Refresh"   
+                         onclick="Refresh()">
+                         <br> <br>
+    <input type="text">
+    <div style="height:100px; width: 100px; background-color: orangered;">
+       
+    </div>
+    <script>
+
+        function Refresh()
+        {
+            window.location.href = "13Demo.html";
+        }
+        function Print()
+        {
+            var random = Math.random();
+            console.log(random);
+
+            var x = random * 10;
+            console.log(x) 
+
+            var completeVal = Math.floor(x);
+            console.log(completeVal);
+        }
+    </script>
+</body>
+</html>

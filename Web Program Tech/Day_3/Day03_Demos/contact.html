@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Demo</title>
+    </head>
+    <body>
+       <form action="someprogramonserverside.jsp" 
+             method="post">
+        <table border="1">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="FName"
+                            required>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password" name="myPassword" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>
+                    <input type="number" min="18" max="60"
+                           name="myAge" required>
+                </td>
+            </tr>
+            <tr>
+                <td>EMail</td>
+                <td>
+                    <input type="email"
+                           name="myEMail" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Fav Color</td>
+                <td>
+                    <input type="color"
+                         name="myFavColor">
+                </td>
+            </tr>
+            <tr>
+                <td>DOB</td>
+                <td>
+                    <input type="date"
+                         name="myDOB" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Register"
+                           name="button1">
+                </td>
+            </tr>
+        </table>
+       </form>
+    </body>
+</html>

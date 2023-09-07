@@ -1,0 +1,49 @@
+----------------STORED FUNCTIONS-----------------
+delimiter //
+create function abc()
+returns int
+deterministic
+begin
+return 10;
+end //
+delimiter ;
+
+delimiter //
+create procedure pqr()
+begin
+declare x int;
+set x =abc();
+insert into Temp values(x,'After abc');
+end //
+demilter ;
+
+call pqr();
+select * from Temp;
+drop function abc;
+drop procedure pqr;
+
+----------------------------------------------------
+
+delimiter //
+create function abc(y int)
+returns int
+deterministic
+begin
+return y;
+end //
+delimiter ;
+
+delimiter //
+create procedure pqr()
+begin
+declare x=abc(10);
+insert into Temp values(x, 'After abc');
+end //
+delimiter ;
+
+call pqr();
+select * from Temp;
+drop function abc;
+drop procedure pqr;
+
+-----------------------------------------------------

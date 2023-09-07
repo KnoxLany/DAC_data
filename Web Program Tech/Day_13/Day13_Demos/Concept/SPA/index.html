@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sunbeam</title>
+</head>
+<body onload="SwitchPage('home')">
+    <center><h1>This is Header</h1></center>
+    <br><br>
+    <hr>
+        <a onclick="SwitchPage('home')">Home</a> | 
+        <a onclick="SwitchPage('about')">About Us</a> | 
+        <a onclick="SwitchPage('contact')">Contact Us</a> | 
+    <hr>
+    <div id="root"></div>
+    <hr>
+    <center>
+        <h1>Footer</h1>
+    </center>
+    <script src="home.js"></script>
+    <script src="contact.js"></script>
+    <script src="about.js"></script>
+    <script src="notfound.js"></script>
+    <script>
+        var refToRoot = document.getElementById("root");
+        function SwitchPage(pagename)
+        {
+            switch (pagename) {
+                case "home":
+                    var homeObject = new Home();
+                    refToRoot.innerHTML = 
+                                homeObject.render();
+                    break;
+                case "about":
+                    refToRoot.innerHTML = About();
+                    break;
+                case "contact":
+                    refToRoot.innerHTML = Contact();
+                    break;
+                default:
+                refToRoot.innerHTML =NotFound();
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="DoSomething()">
+        <video src="sample.mp4" id="myVideo" 
+                style="height: 20px; width: 200px;"
+        controls></video>
+    </button>    
+    <script>
+        function DoSomething()
+        {
+            var refTomyVideo = 
+                document.getElementById("myVideo");
+            refTomyVideo.play();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body>
+    Name: <input type="text" id="txtName"> <br>
+    Address: <textarea id="txtAddress"></textarea> <br>
+    Country: <select id="cmbCountry">
+                <option value="0">Select your country</option>
+                <option value="1">India</option>
+                <option value="2">UK</option>
+                <option value="3">USA</option>
+             </select> 
+             <br>
+    Gender: <input type="radio" 
+                   name="radGender" id="" value="1"> M
+            <input type="radio" 
+                   name="radGender" value="2"> F
+            <input type="radio" 
+                   name="radGender" value="3"> O
+
+    <input type="button" 
+           value="Click Me" 
+           onclick="Print()">
+
+    <script>
+        function Print()
+        {
+         var refTotxtName = 
+                 document.getElementById("txtName");
+         console.log(refTotxtName.value);
+
+         var refTotxtAddress = 
+                 document.getElementById("txtAddress");
+         console.log(txtAddress.value);
+
+         var refTocmbCountry = 
+                 document.getElementById("cmbCountry");
+         console.log(cmbCountry.value);
+
+         var refToradGender =  
+              document.getElementsByName("radGender");
+        
+        debugger;
+
+            for(i=0;i<refToradGender.length; i++)
+            {
+                if(refToradGender[i].checked)
+                {
+                    console.log("You selected Gender: " + 
+                            refToradGender[i].value);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

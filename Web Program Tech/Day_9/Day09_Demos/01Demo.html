@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body style="text-align: -webkit-center;">
+    <button style="color: white;background-color: blue;"
+            onclick="CallServerToGetData()">
+        Click Me!    
+    </button>
+    <table border=1 style="width: 500px" id="myTable">
+        
+    </table>
+
+    <script>
+        function CallServerToGetData()
+        {
+            var refTomyTable = 
+                document.getElementById("myTable");
+
+            debugger;
+            var helper = new XMLHttpRequest();
+            //readyState=0 here. Anything is yet to happen
+
+            helper.onreadystatechange = ()=>{
+                //debugger;
+                //console.log(helper.readyState)
+                if(helper.readyState == 4 && 
+                    helper.status == 200)
+                {
+                  debugger;
+                  var usersInString = helper.responseText;
+                  var users = JSON.parse(usersInString);
+                  for(i=0; i<users.length;i++)
+                  {
+                    var user = users[i];
+                    var row = `<tr>
+                                <td>${user.No}</td>
+                                <td>${user.Name}</td>
+                                <td>${user.Address}</td>
+                               </tr>`;
+                    refTomyTable.innerHTML =
+                        refTomyTable.innerHTML + row; 
+                  }
+                  
+                }
+            };
+
+            helper.open("GET",
+                    "http://127.0.0.1:5500/MyData.json");
+            //readyState=1 here. Packet is created.
+
+            helper.send();
+            //readyState=2 here. Packet is sent over N/W
+
+            //readyState=3 when we are waiting for reply
+            //from server
+        }
+    </script>
+</body>
+</html>

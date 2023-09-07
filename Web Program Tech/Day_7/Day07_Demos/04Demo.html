@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Start()" id="btnStart">Start</button>
+    <button onclick="Stop()" 
+            id="btnStop" 
+            disabled="disabled">Stop</button>
+        <div id="myDiv1" style="height: 100px; width: 100px; background-color: orange;position: absolute;top:50px">
+            <img src="car2.png" style="height: 100px; width: 100px;" id="mycar">
+        </div>
+        <div id="myDiv2" style="height: 50px;width:100%;background-color: black;position: absolute;top:150px">
+        </div>
+       
+      
+
+        <script>
+            var leftcounter = 0;
+            var queNos = new Array();
+            var refToBtnStop = 
+                document.getElementById("btnStop");
+
+            function Start()
+            {
+                var queNo =  window.setInterval(Move, 100);
+                queNos.push(queNo);
+                refToBtnStop.disabled = null;
+            }
+
+            function Stop()
+            {
+               for(i=0;i<queNos.length; i++)
+               {
+                var queNo = queNos[i];
+                window.clearInterval(queNo);
+               }
+               refToBtnStop.disabled = "disabled";
+            }
+            function Move()
+            {
+                var refTomyDiv1 = document.getElementById("myDiv1");
+
+              leftcounter = leftcounter + 1;
+              refTomyDiv1.style.left = 
+                    leftcounter + "px";
+            }
+        </script>
+</body>
+</html>

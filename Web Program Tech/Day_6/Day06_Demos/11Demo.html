@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+     <button onclick="DoSomething()">Do Something</button>
+        <div id="myDiv1" style="height: 100px; width: 100px; background-color: orange;position: absolute;top:50px">
+            <img src="car2.png" style="height: 100px; width: 100px;" id="mycar">
+        </div>
+        <div id="myDiv2" style="height: 50px;width:800px ;background-color: black;position: absolute;top:150px">
+        </div>
+       
+      
+
+        <script>
+            var leftcounter = 0;
+            var topCounter = 50;
+
+            var leftFlag = true;
+            var topFlag = false;
+
+            function DoSomething()
+            {
+                var refTomyDiv1 = document.getElementById("myDiv1");
+
+                if(leftFlag == true)
+                {
+                  
+                    leftcounter = leftcounter + 100;
+                    refTomyDiv1.style.left = 
+                            leftcounter + "px";
+                    if(leftcounter >= 800)
+                    {
+                        leftFlag = false;
+                        topFlag = true;
+                    }
+                }
+                
+                if(topFlag == true)
+                {
+                    debugger;
+                    topCounter = topCounter + 100;
+                        refTomyDiv1.style.top = topCounter + "px"; 
+
+                        if(topCounter >= 300)
+                        {
+                            var refTomycar = 
+                            document.getElementById("mycar");
+
+                            refTomycar.src = "accident.png";
+                            topCounter = false;
+                        }
+                }
+            }
+        </script>
+</body>
+</html>

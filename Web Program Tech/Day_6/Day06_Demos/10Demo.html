@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+        <div id="myDiv1" style="height: 250px; width: 250px; background-color: orange;position: absolute;">
+        </div>
+        <div id="myDiv2" style="height: 200px; width: 200px; background-color: black;position: absolute;">
+        </div>
+       
+        <button onclick="DoSomething()">Do Something</button>
+
+        <script>
+            var counter = 0;
+            function DoSomething()
+            {
+                var refTomyDiv1 = document.getElementById("myDiv1");
+                counter = counter + 10;
+                refTomyDiv1.style.marginLeft = 
+                                    counter + "px";
+            }
+        </script>
+</body>
+</html>

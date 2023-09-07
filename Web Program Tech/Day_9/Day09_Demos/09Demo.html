@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page 1</title>
+</head>
+<body onload="ShowMessage()">
+    <h1>This is Page 2</h1>
+    <input type="button" value="Logout" onclick="Remove()">
+    <div id="divMessage">
+
+    </div>
+
+    <div id="divMessage1">
+
+    </div>
+    <script>
+        function Remove()
+        {
+            localStorage.removeItem("UName");
+            localStorage.removeItem("UCity");
+            sessionStorage.removeItem("Phone");
+            sessionStorage.removeItem("EMail");
+            window.location.href ="08Demo.html";
+        }
+        function ShowMessage()
+        {
+            if( sessionStorage.getItem("Phone")==null)
+            {
+                window.location.href ="08Demo.html";
+            }
+            var refTodivMessage = document.getElementById("divMessage");
+            var refTodivMessage1 = document.getElementById("divMessage1");
+
+           var UserName =   localStorage.getItem("UName");
+           var UCity =   localStorage.getItem("UCity");
+
+           var Phone =   sessionStorage.getItem("Phone");
+           var EMail =   sessionStorage.getItem("EMail");
+
+            refTodivMessage.innerText = 
+                    `Welcome ${UserName} from ${UCity}`;
+        
+            refTodivMessage1.innerText = 
+                    `Phone No is ${Phone}.
+                     <br/>EMail is  ${EMail}`;
+        }
+    </script>
+</body>
+</html>

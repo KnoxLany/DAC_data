@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+        <button onclick="DoSomething()">
+            Click Me
+        </button>
+        <br> <br>
+        <div id="myDiv1" style="height: 200px; width: 200px; background-color: red;"></div>
+
+       
+        <script>
+            var flag = true;
+            function DoSomething()
+            {
+                var refTomyDiv1 = document.getElementById("myDiv1");
+               
+                if(flag)
+                {
+                    refTomyDiv1.style.width = "100px";
+                    refTomyDiv1.style.height = "100px";
+                    refTomyDiv1.style.backgroundColor = "green";
+                    flag = false;
+                }
+                else
+                {
+                    refTomyDiv1.style.width = "200px";
+                    refTomyDiv1.style.height = "200px";
+                    refTomyDiv1.style.backgroundColor = "red";
+                    flag = true;
+                }
+            }
+        </script>
+</body>
+</html>

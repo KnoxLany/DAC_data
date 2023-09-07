@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body style="text-align: -webkit-center;"
+      onload="CallServerToGetData()">
+   
+    <div style="height: 100%; width: 100%; background-color: gray;display: flex;flex-wrap: wrap;
+    justify-content: space-around;vertical-align: middle;border: 2px solid black; margin: 10px;" id="myContainer">
+    
+    </div>
+    <script>
+        var allUsers = null;
+
+
+        function CallServerToGetData()
+        {
+            var refTomyContainer = 
+                document.getElementById("myContainer");
+
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+            if(helper.readyState == 4 && 
+                    helper.status == 200)
+                {
+                  debugger;
+                  var usersInString = helper.responseText;
+                  var users = JSON.parse(usersInString);
+                  allUsers = users.data;
+
+                  if(allUsers!= null)
+                  {
+                    for(i=0; i<allUsers.length;i++)
+                    {
+                        var user = users.data[i];
+                        var content = `<div style="height:
+                                        300px; width: 300px;border: 2px solid black; margin: 10px;padding: 10px">
+                                    <img src=${user.avatar} style="height:200px;width:200px">
+                                    <h3>
+                                        ${user.first_name}
+                                        ${" "} 
+                                        ${user.last_name}
+                                    </h3>
+                                    <button 
+                                    id="${user.id}"
+                                    onclick="RemoveUser(${user.id})">
+                                        Remove
+                                    </button>
+                                </div>`;
+                        refTomyContainer.innerHTML =
+                        refTomyContainer.innerHTML + content; 
+                    }
+                  }
+                }
+            };
+
+            helper.open("GET",
+                    "https://reqres.in/api/users");
+            helper.send();
+    }
+    
+        function RemoveUser(id)
+        {
+            var refToButtonBeingClicked = 
+                document.getElementById(id);
+            refToButtonBeingClicked.parentElement.remove()
+        }
+    </script>
+</body>
+</html>

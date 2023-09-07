@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function GetCounter()
+        {
+            var counter = 0;
+            var Count = function()
+                        {
+                            debugger;
+                            counter = counter + 1;
+                            return counter;
+                        }
+            return Count;
+        }
+       
+        debugger;
+        var KeepCounting = GetCounter();
+        debugger;
+        console.log(KeepCounting ());
+        console.log(KeepCounting ());
+    </script>
+</body>
+</html>

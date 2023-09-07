@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <noscript>
+        Pls Enable JS support on this browser!
+    </noscript>
+    <button onclick="Plot()">
+      <h1>  Draw </h1>
+    </button>
+    <canvas style="height: 100%; width: 100%; background-color: yellow;" id="myCanvas">
+        Your browser does not support HTML 5!
+        Pls Upgrade...
+    </canvas>    
+
+    <script>
+        var refTomyCanvas = 
+            document.getElementById("myCanvas");
+
+        function Plot()
+        {
+            var refToAxis = refTomyCanvas.getContext("2d");
+            refToAxis.moveTo(10,10); //Starting point 
+            refToAxis.lineTo(100,100); //Ending point 
+            refToAxis.stroke();
+        }
+    </script>
+</body>
+</html>

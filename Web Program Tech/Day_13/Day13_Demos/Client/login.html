@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log in</title>
+</head>
+<body>
+    <br>
+    <br><br><br><br>
+    <center>
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td>
+                    <input type="text" id="txtName">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password" id="txtPassword">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Login" onclick="SignIn()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                 <div id="errorDiv" style="color: red;">
+                 </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <script>
+        function SignIn()
+        {
+            var refToTxtName = 
+                document.getElementById("txtName"); 
+
+            var refTotxtPassword = 
+                document.getElementById("txtPassword");
+            
+            var refToerrorDiv = 
+                document.getElementById("errorDiv");
+            var credentials = {
+                    "username":refToTxtName.value,
+                    "password":refTotxtPassword.value
+                    }
+            
+            var helper = new XMLHttpRequest();
+            helper.onreadystatechange = ()=>{
+                if(helper.readyState == 4 &&
+                    helper.status == 200)
+                    {
+                       var responseReceived = 
+                        JSON.parse( helper.responseText);
+                        if(responseReceived.isValid 
+                            == 'true')
+                        {
+                refToerrorDiv.innerText = "";
+                sessionStorage.setItem("isloggedin", true);
+                sessionStorage.setItem("username",refToTxtName.value  )
+                
+                window.location.href = "index.html";
+                        } 
+                        else
+                        {
+                    refToerrorDiv.innerText = "Credentials Invalid!";
+                        }
+                    }
+            };
+            helper.open("POST", 
+                        "http://127.0.0.1:9999/login");
+            
+            helper.setRequestHeader("Content-Type", "application/json")
+
+            var credentialsInString = JSON.stringify(credentials);
+
+            var credentialsInEncoded = window.btoa(credentialsInString)
+
+            var details ={"credentials":
+                            credentialsInEncoded }
+            helper.send(JSON.stringify(details));
+
+        }
+    </script>
+</body>
+</html>

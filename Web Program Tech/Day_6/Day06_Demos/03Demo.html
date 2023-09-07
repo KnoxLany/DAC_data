@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+   <center>
+    <table style="width: 400px;">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtName"></td>
+            <td><div id="divForName" style="color:red"></div></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" id="txtAddress"></td>
+            <td><div id="divForAddress" style="color: red;"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="button" id="btn" value="Click Me" onclick="Validate()"></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="divForPrintingData1"></div>
+                <div id="divForPrintingData2"></div>
+            </td>
+        </tr>
+    </table>
+   </center>
+    <script>
+        function Validate()
+        {
+            ValidateEmptyName();
+            ValidateEmptyAddress();
+        }
+        function ValidateEmptyName()
+        {
+            var refTotxtName = 
+                document.getElementById("txtName");
+             
+            var refTodivForName = 
+                document.getElementById("divForName");
+
+            var refTodivForPrintingData1 = 
+             document.getElementById("divForPrintingData1");
+            
+            if(refTotxtName.value =="")
+            {
+                refTodivForName.innerText = "Name can not be empty!";
+                refTodivForPrintingData1.innerText = "";
+            }
+            else
+            {
+                refTodivForName.innerText="";
+                refTodivForPrintingData1.innerText = 
+                                        refTotxtName.value
+
+            }
+
+        }
+
+        function ValidateEmptyAddress()
+        {
+            var refTotxtAddress = 
+                document.getElementById("txtAddress");
+             
+            var refTodivForAddress = 
+                document.getElementById("divForAddress");
+
+            var refTodivForPrintingData2 = 
+             document.getElementById("divForPrintingData2");
+            
+            if(refTotxtAddress.value =="")
+            {
+                refTodivForAddress.innerText = "Address can not be empty!";
+                refTodivForPrintingData2.innerText = "";
+            }
+            else
+            {
+                refTodivForAddress.innerText="";
+                refTodivForPrintingData2.innerText = 
+                refTotxtAddress.value
+
+            }
+
+        }
+
+
+</script>
+</body>
+</html>

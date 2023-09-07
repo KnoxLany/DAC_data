@@ -1,0 +1,19 @@
+{
+  "name": "00demo",
+  "version": "1.0.0",
+  "description": "This is developed by Sunbeam",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "abc",
+    "pqr"
+  ],
+  "author": "Mahesh Panhale",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.2.1",
+    "mysql": "^2.18.1"
+  }
+}

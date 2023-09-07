@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:9999/emps" 
+          method="post" id="myform">
+          <div className="form-group">
+            <input type="number" className="form-control" 
+            name="ENo" id="ENo"  required min="1" max="10"
+            placeholder="Enter ENo"
+          />
+        </div>
+        <div className="form-group">
+            <input type="text" className="form-control" 
+            name="EName" id="EName" required
+            placeholder="Enter EName"/>
+        </div>
+        <div className="form-group">
+            <input type="text"  id="EAddress" className="form-control" 
+            name="EAddress" 
+            placeholder="Enter EAddress"/>
+        </div>
+        <input type="button" onclick="DoSubmit()"
+                className="btn btn-primary"
+                value="Add Record"
+                >
+        <!-- <input type="submit"
+                className="btn btn-primary"
+                value="Add Record"
+                > -->
+    </form>
+    <script>
+        function DoSubmit()
+        {
+            var refTomyform = 
+                    document.getElementById("myform");
+            
+            var refToENo = document.getElementById("ENo");
+            debugger;
+            var isNoValid=  refToENo.checkValidity();
+            if(!isNoValid)
+            {
+                alert(refToENo.validationMessage);
+            }
+            else
+            {
+                refTomyform.submit();
+            }
+        }
+    </script>
+</body>
+</html>
